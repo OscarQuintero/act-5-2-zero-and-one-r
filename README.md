@@ -1,8 +1,8 @@
-#Actividad 5.2 - Aplicación Algoritmo Zero-R y One-R
+# Actividad 5.2 - Aplicación Algoritmo Zero-R y One-R
 
 ##
 
-##Elaborado por:
+## Elaborado por:
 
 - Carlos Alberto Ortiz Morales - 218294141
 - Jose De Jesus Hernandez Arteaga - 214611533

@@ -94,8 +94,15 @@ def obtenerModaDeClase(listaDeFrecuencias):
 		
 	return moda
 
-def zero_r(conjuntoE, conjuntoP):
-	pass
+'''Determina un modelo de predicción a partir de un conjunto en un diccionario 
+	{'Clase': clasePredicha}. Devuelve la clase de predicha'''
+def zero_r(conjunto, nombreClase):
+	prediccion = {'Clase': 'ND'}
+
+	domClase = obtenerDominioDeClase(conjunto, nombreClase)
+	listaFrec = obtenerFrecuenciasDeClase(conjunto, nombreClase, domClase)
+	prediccion['Clase'] = obtenerModaDeClase(listaFrec)
+	return prediccion
 
 def one_r(conjuntoE, conjuntoP):
 	pass
@@ -144,6 +151,13 @@ print obtenerFrecuenciasDeClase(ConjuntoInicial, 'Clase', domClase)
 print obtenerModaDeClase(obtenerFrecuenciasDeClase(ConjuntoInicial, 'Clase', domClase))
 #Determinar clase con más frecuencia
 
+print('----------------------------------------')
+print("Zero-R	Modelo:")
+print('----------------------------------------')
+print('\n\n')
+print('El algoritmo Zero-R predice que el modelo\nde predicción esta dado por la\n')
+
+print zero_r(ConjuntoInicial, 'Clase')
 #Determinar 
 #
 

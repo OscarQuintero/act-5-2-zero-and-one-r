@@ -54,12 +54,30 @@ def separarConjuntoInicialEnEntrenamientoYPrueba(conjuntoI, conjuntoE, conjuntoP
 	Se devuelve una lista con los valores posibles de las clases (dominioClase)'''
 def obtenerDominioDeClase(conjunto, nombreClase):
 	dominioClase = []
-	pass
+	for instancia in conjunto:
+		#print instancia.get(nombreClase)
+		if instancia.get(nombreClase) in dominioClase:
+			pass
+			#print "Yes"
+		else:			
+			dominioClase.append(instancia.get(nombreClase))
+			# print "No"
+
 	return dominioClase
 
-def obtenerFrecuenciaDeClase(conjunto, nombreClase, dominioClase):
-
-	return
+def obtenerFrecuenciasDeClase(conjunto, nombreClase, dominioClase):
+	listaDeFrecuencias = []
+	
+	for clase in dominioClase:
+		diccAux = {}
+		diccAux['Clase']=clase
+		frecuencia = 0
+		for instancia in conjunto:
+			if clase == instancia.get(nombreClase):
+				frecuencia += 1
+		diccAux['Frecuencia']=frecuencia
+		listaDeFrecuencias.append(diccAux)
+	return listaDeFrecuencias
 
 #Flujo pricnipal del programa
 print('----------------------------------------')
@@ -90,11 +108,20 @@ print("Conjunto de Datos de Prueba:")
 print('----------------------------------------')
 print ConjuntoPrueba
 
-#Determinar el dominio de clase
+print('----------------------------------------')
+print("Dominio (Valores posibles) de la Clase:")
+print('----------------------------------------')
+domClase = obtenerDominioDeClase(ConjuntoInicial, 'Clase')
+print domClase
+print('----------------------------------------')
+print("Frecuencias para cada Clase:")
+print('----------------------------------------')
+
+print obtenerFrecuenciasDeClase(ConjuntoInicial, 'Clase', domClase)
 #Determinar clase con más frecuencia
+
 #Determinar 
 #
-
 
 # print ConjuntoInicial[3]
 #print ConjuntoInicial

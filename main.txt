@@ -18,3 +18,15 @@ Instrucciones:
 	B) Tratar que las funciones tengan la menor cantidad de valores fijos 
 	C) Diseñar funciones que sean lo menos dependientes de otras 
 	D) Comentar las funciones: Parámetros de entrada, salida y función particular.
+
+Variables:
+	ArchivoOrigen
+	ConjuntoInicial
+	ConjuntoEntrenamiento
+	ConjuntoPrueba
+
+Funciones:
+	abrirarchivo() -> ArchivoOrigen
+	
+	
+

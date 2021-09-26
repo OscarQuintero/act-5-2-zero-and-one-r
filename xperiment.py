@@ -11,16 +11,26 @@ ConjuntoPrueba = []
 
 #Declaración de Funciones
 
+
+'''Lee el archivo CSV en la ruta especificada 
+	y devuelve una lista de diccionarios que es el conjunto de datos'''
 def extraerConjuntoInicialDe(rutaDelArchivo):
-	Conjunto = []
+	conjunto = []
 	with open(rutaDelArchivo) as ArchivoOrigen:
 		reader = csv.DictReader(ArchivoOrigen)
 			
 		for row in reader:
-			Conjunto.append(row)
+			conjunto.append(row)
 
-		return Conjunto
+		return conjunto
 
+'''Toma un conjunto de datos inicial y de manera aleatoria
+	separa en dos conjuntos de datos disjuntos, uno para entrenamiento y otro para pruebas
+	Se requiere 
+	el conjunto de datos inicial que no sufrirá cambios
+	el conjunto de datos en el que se guardarán las instancias de entrenamiento
+	el conjunto de datos donde se guardarán las instancias de prueba
+	El porcentaje de instancias que se utilizarán de entrenamiento.'''
 def separarConjuntoInicialEnEntrenamientoYPrueba(conjuntoI, conjuntoE, conjuntoP, PorcentajeEntrenamiento):
 	conjuntoE[:] = []
 	conjuntoP[:] = conjuntoI[:]
@@ -39,6 +49,17 @@ def separarConjuntoInicialEnEntrenamientoYPrueba(conjuntoI, conjuntoE, conjuntoP
 	
 	return
 
+'''conjunto es el data set a analizar, y el nombre del atributo clase es nombreClase 
+	para la busqueda en los disccionarios
+	Se devuelve una lista con los valores posibles de las clases (dominioClase)'''
+def obtenerDominioDeClase(conjunto, nombreClase):
+	dominioClase = []
+	pass
+	return dominioClase
+
+def obtenerFrecuenciaDeClase(conjunto, nombreClase, dominioClase):
+
+	return
 
 #Flujo pricnipal del programa
 print('----------------------------------------')
@@ -50,15 +71,16 @@ ConjuntoInicial = extraerConjuntoInicialDe('db.csv')
 print('--------------------------------')
 print("Conjunto de Datos Inicial:")
 print('----------------------------------------')
-
 # print ConjuntoEntrenamiento
 # print ConjuntoPrueba
 print ConjuntoInicial
+
 print('----------------------------------------')
 print("Separando en dos conjuntos disjuntos....")
 print('----------------------------------------')
 separarConjuntoInicialEnEntrenamientoYPrueba(ConjuntoInicial, ConjuntoEntrenamiento, ConjuntoPrueba, 70)
 #print ConjuntoInicial
+
 print('----------------------------------------')
 print("Conjunto de Datos de Entrenamiento:")
 print('----------------------------------------')
@@ -68,6 +90,10 @@ print("Conjunto de Datos de Prueba:")
 print('----------------------------------------')
 print ConjuntoPrueba
 
+#Determinar el dominio de clase
+#Determinar clase con más frecuencia
+#Determinar 
+#
 
 
 # print ConjuntoInicial[3]

@@ -97,12 +97,25 @@ def obtenerModaDeClase(listaDeFrecuencias):
 '''Determina un modelo de predicción a partir de un conjunto en un diccionario 
 	{'Clase': clasePredicha}. Devuelve la clase de predicha'''
 def zero_r(conjunto, nombreClase):
-	prediccion = {'Clase': 'ND'}
+	prediccion = {nombreClase: 'ND'}
 
 	domClase = obtenerDominioDeClase(conjunto, nombreClase)
 	listaFrec = obtenerFrecuenciasDeClase(conjunto, nombreClase, domClase)
-	prediccion['Clase'] = obtenerModaDeClase(listaFrec)
+	prediccion[nombreClase] = obtenerModaDeClase(listaFrec)
 	return prediccion
+
+def evaluarZero_r(conjunto, modeloZeroR, nombreClase):
+	valorDePrecision = 0
+	casosFavorables = 0
+	for instancia in conjunto:
+		if instancia[nombreClase] == modeloZeroR[nombreClase]:
+			#print "Yes"
+			casosFavorables += 1
+		
+	#print float(casosFavorables)/float(len(conjunto))
+
+	valorDePrecision = float(casosFavorables)/float(len(conjunto))
+	return valorDePrecision
 
 def one_r(conjuntoE, conjuntoP):
 	pass
@@ -121,7 +134,7 @@ print("Conjunto de Datos Inicial:")
 print('----------------------------------------')
 # print ConjuntoEntrenamiento
 # print ConjuntoPrueba
-print ConjuntoInicial
+#print ConjuntoInicial
 
 print('----------------------------------------')
 print("Separando en dos conjuntos disjuntos....")
@@ -132,32 +145,46 @@ separarConjuntoInicialEnEntrenamientoYPrueba(ConjuntoInicial, ConjuntoEntrenamie
 print('----------------------------------------')
 print("Conjunto de Datos de Entrenamiento:")
 print('----------------------------------------')
-print ConjuntoEntrenamiento
+#print ConjuntoEntrenamiento
 print('----------------------------------------')
 print("Conjunto de Datos de Prueba:")
 print('----------------------------------------')
-print ConjuntoPrueba
+#print ConjuntoPrueba
 
-print('----------------------------------------')
-print("Dominio (Valores posibles) de la Clase:")
-print('----------------------------------------')
-domClase = obtenerDominioDeClase(ConjuntoInicial, 'Clase')
-print domClase
-print('----------------------------------------')
-print("Frecuencias para cada Clase:")
-print('----------------------------------------')
+# print('----------------------------------------')
+# print("Dominio (Valores posibles) de la Clase:")
+# print('----------------------------------------')
+# domClase = obtenerDominioDeClase(ConjuntoInicial, 'Clase')
+# print domClase
+# print('----------------------------------------')
+# print("Frecuencias para cada Clase:")
+# print('----------------------------------------')
 
-print obtenerFrecuenciasDeClase(ConjuntoInicial, 'Clase', domClase)
-print obtenerModaDeClase(obtenerFrecuenciasDeClase(ConjuntoInicial, 'Clase', domClase))
+# print obtenerFrecuenciasDeClase(ConjuntoInicial, 'Clase', domClase)
+# print obtenerModaDeClase(obtenerFrecuenciasDeClase(ConjuntoInicial, 'Clase', domClase))
 #Determinar clase con más frecuencia
 
 print('----------------------------------------')
 print("Zero-R	Modelo:")
 print('----------------------------------------')
 print('\n\n')
-print('El algoritmo Zero-R predice que el modelo\nde predicción esta dado por la\n')
+print('El algoritmo Zero-R encuentra que el modelo\nde predicción en todo el conjunto\n esta dado por la Clase')
 
-print zero_r(ConjuntoInicial, 'Clase')
+modeloZeroRRecordar = zero_r(ConjuntoInicial, 'Clase')
+print modeloZeroRRecordar
+print('\n')
+
+print('El algoritmo Zero-R tiene una capacidad de\nrecordar con precisión del ')
+print evaluarZero_r(ConjuntoInicial, modeloZeroRRecordar, 'Clase'), "%\n\n"
+
+
+print('El algoritmo Zero-R encuentra que el modelo\nde predicción en el conjunto de Entrenamiento\nesta dado por la Clase')
+modeloZeroREntrenamiento = zero_r(ConjuntoEntrenamiento, 'Clase')
+print modeloZeroREntrenamiento
+print('\n')
+
+print('El algoritmo Zero-R tiene una capacidad de\npredecir con precisión del ')
+print evaluarZero_r(ConjuntoPrueba, modeloZeroREntrenamiento, 'Clase'), "%\n\n"
 #Determinar 
 #
 

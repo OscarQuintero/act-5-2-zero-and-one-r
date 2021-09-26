@@ -26,7 +26,13 @@ Variables:
 	ConjuntoPrueba
 
 Funciones:
-	abrirarchivo() -> ArchivoOrigen
-	
+	abrirArchivo():				ArchivoOrigen
+	extraerConjuntoInicial():	ConjuntoInicial
+	separarConjuntoEntrenamientoDePrueba(PorcentajeEntrenamiento, ConjuntoEntrenamiento, ConjuntoPueba): 
+	{
+		ConjuntoEntrenamiento = ConjuntoInicial
+	}
+	elegirTuplasAleatoriasPorcentaje(porcentaje)
+
 	
 

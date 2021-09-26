@@ -1,5 +1,14 @@
 # -*- coding: utf_8 -*-
 
 print('--------------------------------')
-print("Aplicación del Algoritmo Zero-R")
+print("Lectura del archivo CSV")
 print('--------------------------------')
+
+import csv
+
+results = []
+with open('db.csv') as File:
+    reader = csv.DictReader(File)
+    for row in reader:
+        results.append(row)
+    print results

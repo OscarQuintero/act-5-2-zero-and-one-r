@@ -1,14 +1,35 @@
 # -*- coding: utf_8 -*-
 
 print('--------------------------------')
-print("Lectura del archivo CSV")
+print("Lectura del archivo CSV ")
 print('--------------------------------')
 
 import csv
 
-results = []
-with open('db.csv') as File:
-    reader = csv.DictReader(File)
-    for row in reader:
-        results.append(row)
-    print results
+ConjuntoInicial = []
+ConjuntoEntrenamiento = []
+ConjuntoPrueba = []
+
+def extraerConjuntoInicialDe(ruta):
+	print ("En construcción")
+	with open(ruta) as ArchivoOrigen:
+		reader = csv.DictReader(ArchivoOrigen)
+			
+		for row in reader:
+			ConjuntoInicial.append(row)
+
+
+
+    
+
+
+extraerConjuntoInicialDe('db.csv')
+
+
+
+print ConjuntoInicial[3]
+print ConjuntoInicial
+
+print('--------------------------------')
+print("Proceso....")
+print('--------------------------------')

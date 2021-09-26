@@ -168,7 +168,7 @@ print('----------------------------------------')
 print("Zero-R	Modelo:")
 print('----------------------------------------')
 print('\n\n')
-print('El algoritmo Zero-R encuentra que el modelo\nde predicción en todo el conjunto\n esta dado por la Clase')
+print('El algoritmo Zero-R encuentra que el \nmodelo de predicción en todo el conjunto\nestá dado por la Clase')
 
 modeloZeroRRecordar = zero_r(ConjuntoInicial, 'Clase')
 print modeloZeroRRecordar
@@ -178,18 +178,38 @@ print('El algoritmo Zero-R tiene una capacidad de\nrecordar con precisión del '
 print evaluarZero_r(ConjuntoInicial, modeloZeroRRecordar, 'Clase'), "%\n\n"
 
 
-print('El algoritmo Zero-R encuentra que el modelo\nde predicción en el conjunto de Entrenamiento\nesta dado por la Clase')
+print('El algoritmo Zero-R encuentra que el \nmodelo de predicción en el conjunto de Entrenamiento\nestá dado por la Clase')
 modeloZeroREntrenamiento = zero_r(ConjuntoEntrenamiento, 'Clase')
 print modeloZeroREntrenamiento
 print('\n')
 
 print('El algoritmo Zero-R tiene una capacidad de\npredecir con precisión del ')
 print evaluarZero_r(ConjuntoPrueba, modeloZeroREntrenamiento, 'Clase'), "%\n\n"
-#Determinar 
-#
 
-# print ConjuntoInicial[3]
-#print ConjuntoInicial
+
+
+print('----------------------------------------')
+print("One-R	Modelo:")
+print('----------------------------------------')
+print('\n\n')
+print('El algoritmo One-R encuentra que el \nmodelo de predicción en todo el conjunto\nestá dado por el Predictor')
+print('De acuerdo a la siguiente regla entre el Predictor y la Clase')
+
+# modeloOneRRecordar = zero_r(ConjuntoInicial, 'Clase')
+# print modeloOneRRecordar
+# print('\n')
+
+# print('El algoritmo One-R tiene una capacidad de\nrecordar con precisión del ')
+# print evaluarZero_r(ConjuntoInicial, modeloOneRRecordar, 'Clase'), "%\n\n"
+
+
+# print('El algoritmo One-R encuentra que el \nmodelo de predicción en el conjunto de Entrenamiento\nestá dado por la Clase')
+# modeloOneREntrenamiento = zero_r(ConjuntoEntrenamiento, 'Clase')
+# print modeloOneREntrenamiento
+# print('\n')
+
+# print('El algoritmo One-R tiene una capacidad de\npredecir con precisión del ')
+# print evaluarZero_r(ConjuntoPrueba, modeloOneREntrenamiento, 'Clase'), "%\n\n"
 
 print('--------------------------------')
 print("....")

@@ -1,0 +1,20 @@
+Instrucciones: 
+1. Diseñar e implementar una librería/API que permita desarrollar las siguientes actividades: 
+	A) Cargar en memoria un archivo de datos en formato CVS. La extensión del archivo puede  ser cualquiera (cvs, txt, …) 
+	B) Creación de conjuntos de datos de entrenamiento y prueba, con una selección aleatoria  uniforme. 
+	C) Modelo Zero-R 
+	D) Modelo One-R  
+	E) Evaluación de los modelos con base en un conjunto de prueba. Recuerde que se  deberán poder hacer varias iteraciones para la evaluación de modelos. El valor de  número de iteración deberá ser pasado por el usuario. 
+2. Para la revisión de este trabajo, elabore un video de máximo 5 minutos explicando: 
+	A) El paradigma de programación utilizado (orientado a objetos, estructurado, etc) 
+	B) La estructura de carpetas/módulos utilizada para la organización de su librería/API 
+	C) La ejecución de los mismos experimentos elaborados a mano, pero ahora utilizando el  programa. 
+	D) Explicación del formato y los resultados resultantes. 
+3. Como entregable deberá presentar: 
+	A) Video de 5 minutos 
+	B) Código fuente del trabajo desarrollado 
+4. Tome en cuenta las siguientes consideraciones: 
+	A) Antes de comenzar a codificar, recomiendo llevar un proceso de diseño, por lo menos  mentalmente. 
+	B) Tratar que las funciones tengan la menor cantidad de valores fijos 
+	C) Diseñar funciones que sean lo menos dependientes de otras 
+	D) Comentar las funciones: Parámetros de entrada, salida y función particular.

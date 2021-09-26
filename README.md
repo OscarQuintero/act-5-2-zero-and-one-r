@@ -4,9 +4,9 @@
 
 ## Elaborado por:
 
-- Carlos Alberto Ortiz Morales - 218294141
-- Jose De Jesus Hernandez Arteaga - 214611533
-- Oscar Alejandro Quintero Iñiguez - 211618049
+- Carlos Alberto Ortiz Morales 
+- Jose De Jesus Hernandez Arteaga
+- Oscar Alejandro Quintero Iñiguez
 
 
 

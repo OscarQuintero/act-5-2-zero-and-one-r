@@ -65,6 +65,11 @@ def obtenerDominioDeClase(conjunto, nombreClase):
 
 	return dominioClase
 
+'''conjunto es el conjunto de datos a analizar
+	nombreClase es el nombre del atributo de clase en el conjunto
+	dominio de clase es una lista con los posibles valores de la clase
+
+	Se devuelve una lista de diccionarios con la forma {'Clase': clase, 'Freccuencia': número}'''
 def obtenerFrecuenciasDeClase(conjunto, nombreClase, dominioClase):
 	listaDeFrecuencias = []
 	
@@ -78,6 +83,24 @@ def obtenerFrecuenciasDeClase(conjunto, nombreClase, dominioClase):
 		diccAux['Frecuencia']=frecuencia
 		listaDeFrecuencias.append(diccAux)
 	return listaDeFrecuencias
+
+def obtenerModaDeClase(listaDeFrecuencias):
+	moda = ''
+	frecuenciaMayor = 0
+	for diccAux in listaDeFrecuencias:
+		if diccAux['Frecuencia'] > frecuenciaMayor:
+			frecuenciaMayor = diccAux['Frecuencia']
+			moda = diccAux['Clase']
+		
+	return moda
+
+def zero_r(conjuntoE, conjuntoP):
+	pass
+
+def one_r(conjuntoE, conjuntoP):
+	pass
+
+#-----------------------------------------------------------------
 
 #Flujo pricnipal del programa
 print('----------------------------------------')
@@ -118,6 +141,7 @@ print("Frecuencias para cada Clase:")
 print('----------------------------------------')
 
 print obtenerFrecuenciasDeClase(ConjuntoInicial, 'Clase', domClase)
+print obtenerModaDeClase(obtenerFrecuenciasDeClase(ConjuntoInicial, 'Clase', domClase))
 #Determinar clase con más frecuencia
 
 #Determinar 

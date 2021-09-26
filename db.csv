@@ -1,8 +1,4 @@
-"Compra
-(Ordinal)","Mantenimiento
-(Ordinal)","Puertas
-(Nominal)","Personas
-(Nominal)",Clase
+"Compra (Ordinal)","Mantenimiento (Ordinal)","Puertas (Nominal)","Personas (Nominal)",Clase
 vhigh,med,3,4,acc
 vhigh,med,4,4,acc
 vhigh,vhigh,3,2,unacc

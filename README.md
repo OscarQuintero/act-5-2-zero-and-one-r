@@ -1,1 +1,5 @@
-# act-5-2-zero-and-one-r
+#Algoritmo Zero-R y One-R
+
+##
+
+##

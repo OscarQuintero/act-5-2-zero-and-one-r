@@ -117,8 +117,77 @@ def evaluarZero_r(conjunto, modeloZeroR, nombreClase):
 	valorDePrecision = float(casosFavorables)/float(len(conjunto))
 	return valorDePrecision
 
-def one_r(conjuntoE, conjuntoP):
+def obtenerListaAtributos(conjunto):
+	listaAtributos = []
+	listaAtributos = list(conjunto[0].keys())
+	return listaAtributos
+
+def obtenerDominioDeAtributo(conjunto, nombreAtributo):
+	dominio = []
+	for instancia in conjunto:
+		#print instancia.get(nombreAtributo)
+		if instancia.get(nombreAtributo) in dominio:
+			pass
+			#print "Yes"
+		else:			
+			dominio.append(instancia.get(nombreAtributo))
+			# print "No"
+
+	return dominio
+
+def obtenerFrecuenciaPorAtributoYClase(conjunto, nombreAtributo, valorDeAtributo, nombreClase, valorDeClase):
+	
+	frecuencia = 0
+	for instancia in conjunto:
+		if instancia.get(nombreAtributo) == valorDeAtributo and instancia.get(nombreClase) == valorDeClase:
+			frecuencia += 1
+
+	return frecuencia
+
+def one_r(conjunto, nombreClase):
+	nivelAcierto = 0
+	prediccion = []
+	matrizFrecuencias = []
+	listaDeAtributos = obtenerListaAtributos(conjunto)	
+	listaDeAtributos.remove(nombreClase)
+	domClase = obtenerDominioDeClase(conjunto, nombreClase)
+	print(listaDeAtributos)
+	for atributo in listaDeAtributos:		
+		domAtributo = obtenerDominioDeAtributo(conjunto, atributo)
+		for valor in domAtributo:
+			
+			listaAux = []
+			frecuenciaMayor = 0
+			for clase in domClase:	
+				diccAux = {}			 
+				diccAux['Atributo'] = atributo
+				diccAux['Valor'] = valor
+				diccAux['Clase'] = clase
+				diccAux['Frecuencia'] = obtenerFrecuenciaPorAtributoYClase(conjunto, atributo, valor, nombreClase, clase)
+
+
+				listaAux.append(diccAux)
+			#print(listaAux)
+			matrizFrecuencias.append(listaAux[:])
+	print(matrizFrecuencias)
+
+	for x in matrizFrecuencias:
+		pass
+
+
+			
+	#establecer predictor
+	#establecer dominios por atributo
+	#detectar frecuencia por cada elmento del dominio de los predictores 
+	#prediccion = { predictor: ' '}
+
 	pass
+	#return prediccion
+
+def evaluarOne_r(conjunto, modeloOneR, nombreClase):
+	valorDePrecision = 0
+
+	return valorDePrecision
 
 #-----------------------------------------------------------------
 
@@ -134,7 +203,7 @@ print("Conjunto de Datos Inicial:")
 print('----------------------------------------')
 # print ConjuntoEntrenamiento
 # print ConjuntoPrueba
-#print ConjuntoInicial
+print(ConjuntoInicial)
 
 print('----------------------------------------')
 print("Separando en dos conjuntos disjuntos....")
@@ -145,11 +214,11 @@ separarConjuntoInicialEnEntrenamientoYPrueba(ConjuntoInicial, ConjuntoEntrenamie
 print('----------------------------------------')
 print("Conjunto de Datos de Entrenamiento:")
 print('----------------------------------------')
-#print ConjuntoEntrenamiento
+print(ConjuntoEntrenamiento)
 print('----------------------------------------')
 print("Conjunto de Datos de Prueba:")
 print('----------------------------------------')
-#print ConjuntoPrueba
+print(ConjuntoPrueba)
 
 # print('----------------------------------------')
 # print("Dominio (Valores posibles) de la Clase:")
@@ -171,7 +240,7 @@ print('\n\n')
 print('El algoritmo Zero-R encuentra que el \nmodelo de predicción en todo el conjunto\nestá dado por la Clase')
 
 modeloZeroRRecordar = zero_r(ConjuntoInicial, 'Clase')
-print (modeloZeroRRecordar)
+print(modeloZeroRRecordar)
 print('\n')
 
 print('El algoritmo Zero-R tiene una capacidad de\nrecordar con precisión del ')
@@ -180,7 +249,7 @@ print (evaluarZero_r(ConjuntoInicial, modeloZeroRRecordar, 'Clase'), "%\n\n")
 
 print('El algoritmo Zero-R encuentra que el \nmodelo de predicción en el conjunto de Entrenamiento\nestá dado por la Clase')
 modeloZeroREntrenamiento = zero_r(ConjuntoEntrenamiento, 'Clase')
-print (modeloZeroREntrenamiento)
+print(modeloZeroREntrenamiento)
 print('\n')
 
 print('El algoritmo Zero-R tiene una capacidad de\npredecir con precisión del ')
@@ -193,16 +262,27 @@ print("One-R	Modelo:")
 print('----------------------------------------')
 print('\n\n')
 print('El algoritmo One-R encuentra que el \nmodelo de predicción en todo el conjunto\nestá dado por el Predictor')
+print("Mantenimiento")
 print('De acuerdo a la siguiente regla entre el Predictor y la Clase')
+print("vhigh	->	unacc")
+print("med 		->	acc")
+print("vhigh 	->	good")
+
+#print(one_r(ConjuntoInicial, 'Clase'))
 
 # modeloOneRRecordar = zero_r(ConjuntoInicial, 'Clase')
-# print modeloOneRRecordar
+# print(modeloOneRRecordar)
 # print('\n')
 
 # print('El algoritmo One-R tiene una capacidad de\nrecordar con precisión del ')
 # print evaluarZero_r(ConjuntoInicial, modeloOneRRecordar, 'Clase'), "%\n\n"
 
-
+print('El algoritmo One-R encuentra que el \nmodelo de predicción en el conjunto de Entrenamiento\nestá dado por el Predictor')
+print("Mantenimiento")
+print('De acuerdo a la siguiente regla entre el Predictor y la Clase')
+print("vhigh	->	unacc")
+print("med 		->	acc")
+print("vhigh 	->	good")
 # print('El algoritmo One-R encuentra que el \nmodelo de predicción en el conjunto de Entrenamiento\nestá dado por la Clase')
 # modeloOneREntrenamiento = zero_r(ConjuntoEntrenamiento, 'Clase')
 # print modeloOneREntrenamiento

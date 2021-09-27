@@ -171,20 +171,20 @@ print('\n\n')
 print('El algoritmo Zero-R encuentra que el \nmodelo de predicción en todo el conjunto\nestá dado por la Clase')
 
 modeloZeroRRecordar = zero_r(ConjuntoInicial, 'Clase')
-print modeloZeroRRecordar
+print (modeloZeroRRecordar)
 print('\n')
 
 print('El algoritmo Zero-R tiene una capacidad de\nrecordar con precisión del ')
-print evaluarZero_r(ConjuntoInicial, modeloZeroRRecordar, 'Clase'), "%\n\n"
+print (evaluarZero_r(ConjuntoInicial, modeloZeroRRecordar, 'Clase'), "%\n\n")
 
 
 print('El algoritmo Zero-R encuentra que el \nmodelo de predicción en el conjunto de Entrenamiento\nestá dado por la Clase')
 modeloZeroREntrenamiento = zero_r(ConjuntoEntrenamiento, 'Clase')
-print modeloZeroREntrenamiento
+print (modeloZeroREntrenamiento)
 print('\n')
 
 print('El algoritmo Zero-R tiene una capacidad de\npredecir con precisión del ')
-print evaluarZero_r(ConjuntoPrueba, modeloZeroREntrenamiento, 'Clase'), "%\n\n"
+print (evaluarZero_r(ConjuntoPrueba, modeloZeroREntrenamiento, 'Clase'), "%\n\n")
 
 
 
